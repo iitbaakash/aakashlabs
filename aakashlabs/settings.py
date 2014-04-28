@@ -103,6 +103,13 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+
+RECAPTCHA_PUBLIC_KEY = '6Lf9mfISAAAAAI6s1U-FjzKhSCjpLDEJsINoa4Bj '
+
+RECAPTCHA_PRIVATE_KEY = '6Lf9mfISAAAAAH6IgQSuE4tS1-k2RsPvNU0z0nJh'
+
+RECAPTCHA_USE_SSL = True
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -139,6 +146,7 @@ INSTALLED_APPS = (
     # South
     #'south',
     'ac',                       # ac => aakash centres
+    'captcha',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
