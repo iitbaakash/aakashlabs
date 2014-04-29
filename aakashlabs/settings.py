@@ -96,6 +96,12 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'df-vy2!8l3)z1$-9ual(27z10fnpm&8ra+3syzu5jnk42s^z-#'
 
+RECAPTCHA_PUBLIC_KEY = '6Lf9mfISAAAAAI6s1U-FjzKhSCjpLDEJsINoa4Bj '
+
+RECAPTCHA_PRIVATE_KEY = '6Lf9mfISAAAAAH6IgQSuE4tS1-k2RsPvNU0z0nJh'
+
+RECAPTCHA_USE_SSL = True
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -139,6 +145,7 @@ INSTALLED_APPS = (
     # South
     #'south',
     'ac',                       # ac => aakash centres
+    'captcha',
 )
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
