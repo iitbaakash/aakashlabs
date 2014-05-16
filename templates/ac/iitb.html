@@ -8,7 +8,7 @@
 {% block body_block %}
 <div class="container footer_padding" style="padding-top:2.5cm;">
   <div class="page-header" align="center">
-    <h1>Indian Institute of Technology <small>Bombay</small>
+    <h1>भारतीय प्रैद्योगिकी संस्‍थान <small>मुम्‍बई</small>
     </h1>
   </div>
   <div class="row">
@@ -18,12 +18,12 @@
       {% endfor %}
       
       {% if projects %}
-      <h3 align="center">List of project{{projects|pluralize}} <span class="badge">{{projects|length}}</span></h3>
+      <h3 align="center">परियोजनाओं की सूचि{{projects|pluralize}} <span class="badge">{{projects|length}}</span></h3>
       <table class="table table-responsive table-striped">
 	<tr>
-	  <td align="left"><strong>Icon</strong></td>
-	  <td align="left"><strong>Project name</strong></td>
-	  <td align="center"><strong>Download</strong></td>	      
+	  <td align="left"><strong>चित्र (आईकान) </strong></td>
+	  <td align="left"><strong>परियोजना का नाम</strong></td>
+	  <td align="center"><strong>डाउनलोड</strong></td>	      
 	</tr>
 	<form id="download_project_form" method="post">
 	  {% csrf_token %}
@@ -54,7 +54,7 @@
       </table>
       {% else %}
       <div align="center">
-	<p>No projects at IITB.</p>
+	<p>भा. प्रौ. सं. मुम्‍बई की परियोजनायें अप्राप्‍त है। </p>
       </div>
       {% endif %}
       </div>

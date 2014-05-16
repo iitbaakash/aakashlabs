@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" />
     <meta name="keywords" content="aakash, tablet, aakashlabs, mhrd, nmeict">
     
-    <title>Aakashlabs{% block title %}{% endblock title %}</title>
+    <title>आकाश लैब{% block title %}{% endblock title %}</title>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
@@ -53,56 +53,56 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav nav-left">
-                <li><a href="/">Home</a></li>
+                <li><a href="/">मुख्‍यपृष्‍ठ </a></li>
               <!--  <li><a href="/about/">About</a></li> -->
 		 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">आकाश परियोजनायें <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-		    <li><a href="/ac/projects/">All projects</a></li>
-                    <li><a href="/ac/iitb/">IITB projects</a></li>
+		    <li><a href="/ac/projects/">परियोजनायें (संपूर्ण)</a></li>
+                    <li><a href="/ac/iitb/">परियोजनायें (भा.प्रौ.सं.-मुम्‍बई )</a></li>
 		    <li class="divider"></li>
-                    <li><a href="/gnu/">GNU/Linux on Aakash</a></li>
+                    <li><a href="/gnu/">GNU/Linux आकाश टैब पर</a></li>
                   </ul>
                 </li>
 		<!--  <li><a href="/activities/">Activities at IITB </a></li>-->
 		 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Activities <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">गतिविधियॉ <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="/activities/">IIT Bombay</a></li>
-                    <li><a href="/others/">AADL</a></li>
+                    <li><a href="/activities/">भा.प्रौ.सं.-मुम्‍बई</a></li>
+                    <li><a href="/others/">आकाश परियोजना विकास प्रयोगशाला</a></li>
 		   
                    <!-- <li class="divider"></li>
                     <li><a href="/compete/">Compete</a></li>
                     <li><a href="#">News</a></li> -->
                   </ul>
                 </li>		
-		<li><a href="/faqs/">FAQs</a></li>
+		<li><a href="/faqs/">प्रश्‍नोत्‍तरी</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">अधिक जानकारी <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-		    <li><a href="/ac/">Aakash Centres</a></li>
+		    <li><a href="/ac/">आकाश दूरस्‍थ केंद्र</a></li>
                     <li class="divider"></li>		    
-                    <li><a href="http://docs.aakashlabs.org">Docs</a></li>
-                    <li><a href="/pubs/">Articles & publications</a></li>
-		    <li><a href="/tutorials/">Tutorials</a></li>
+                    <li><a href="http://docs.aakashlabs.org">दस्‍तावेज</a></li>
+                    <li><a href="/pubs/">लेख एवं प्रकाशन</a></li>
+		    <li><a href="/tutorials/">ई-शिक्षण</a></li>
 		    <li class="divider"></li>
-                    <li><a href="/compete/">Compete</a></li>
+                    <li><a href="/compete/">प्रतियोगितायें</a></li>
                   </ul>
                 </li>
 	      </ul>
 	      <ul class="nav navbar-nav nav-right">
-		<li><a href="/contact/">Contact Us</a></li>
+		<li><a href="/contact/">संपर्क सूत्र</a></li>
 		{% if user.is_authenticated %}
 		<li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{user.username}}<b class="caret"></b></a>
                   <ul class="dropdown-menu">
-		    <li><a href="/user/profile/">Profile</a></li>
-		    <li><a href="/logout/">Logout</a></li>
+		    <li><a href="/user/profile/">वर्णन</a></li>
+		    <li><a href="/logout/">लॉग आउट</a></li>
 		  </ul>
 		</li>
 		{% else %}
 		<!-- <li><a href="/ac/register/">Register</a></li> -->
-		<li><a href="/login/">Login</a></li>
+		<li><a href="/login/">लॉग इन </a></li>
 		{% endif %}
               </ul>
 
@@ -137,7 +137,7 @@
         <a href="https://github.com/androportal" target="_blank">
           <img src="{% static 'images/github-white.png' %}" alt="github">
         </a>
-        <a href="https://plus.google.com/u/1/113521710419776077012">
+        <a href="#">
           <img src="{% static 'images/googleplus.png' %}" alt="googleplus">
         </a>
         <a href="#">
@@ -162,12 +162,11 @@
       </div> <!-- container -->
       
       <div class="container" id="credits">
-      	<div class="pull-left"> &copy; 2013-14 &middot; India Institute of
-      	Technology Bombay</div>
+      	<div class="pull-left"> &copy; 2014 वेबसाइट : आकल्पन, संधारण एवं अद्यतन भारतीय प्रौघोगिकी संस्‍थान – मुम्बई </div>
         <div class="pull-right">
-	  <a href="/sitemap/">Sitemap</a> &middot;	  
-	  <a href="https://github.com/psachin/aakashlabs/graphs/contributors">Credits</a> &middot;
-	  <a href="/privacy/">Terms & Privacy</a>
+	  <a href="/sitemap/">स्‍थल मानचित्र</a> &middot;	  
+	  <a href="https://github.com/psachin/aakashlabs/graphs/contributors">आभार</a> &middot;
+	  <a href="/privacy/">शर्तें और गोपनीय‍ता</a>
 <!--	  <a href="#">Terms</a></div> -->
       </div>
       

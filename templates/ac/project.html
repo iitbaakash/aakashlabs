@@ -23,7 +23,7 @@
       
       <div class="col-md-6">	 
 	<h1 class="text-default">{{project.name}}</h1>
-	<p class="text-muted">By <strong><a href="/ac/{{project.ac.id}}">{{project.ac}}</a></strong> (Centre ID: {{project.ac.ac_id}})</p>
+	<p class="text-muted">द्वारा <strong><a href="/ac/{{project.ac.id}}">{{project.ac}}</a></strong> (दूरस्‍थ केंद्र क्रमांक : {{project.ac.ac_id}})</p>
 	<p class="text-muted"><strong>{{project.ac.city}}, {{project.ac.state}}</strong></p> 
       </div>
       </div> <!-- row well-->
@@ -32,16 +32,16 @@
 	<div class="row"  >
 	  <div class="col-md-3">
 	    {% if members %}
-	    <h3>Team Member{{members|length|pluralize}}</h3>
+	    <h3>टीम के सदस्‍य{{members|length|pluralize}}</h3>
 	    {% for member in members %}
 	    {{forloop.counter}}. {{member}}<br/>
 	    {% endfor %}
 	    {% else %}
-	    <p>No team members.</p>
+	    <p>टीम के सदस्‍य उपलब्‍ध नहीं है।</p>
 	    {% endif %}
 
 	    {% if mentors %}
-	    <h3>Mentor{{mentors|length|pluralize}}</h3>
+	    <h3>गार्डड (विषय विशेषज्ञ){{mentors|length|pluralize}}</h3>
 	    {% for mentor in mentors %}
 	    {{forloop.counter}}. {{mentor}}<br/>
 	    {% endfor %}
@@ -51,21 +51,21 @@
 	  </div> <!-- col-md-3 -->
 	  
 	  <div  class="col-md-9 well" >
-	    <strong class="text-info">Summary:</strong>
+	    <strong class="text-info">संक्षिप्‍त विवरण :</strong>
 	    <p align="justify">{{project.summary|safe|linebreaks}}</p>
 
-	    <strong class="text-info">Documentation:
+	    <strong class="text-info">प्रलेखन :
 	      {% if project.doc_file %}
 	      <a href="/media/{{project.doc_file}}"><i class="fa fa-download"></i></a>
 	      {% endif %}
 	    </strong>
 	    <p ><a href={{project.doc_url}}>{{project.doc_url}}</a></p>
 	    
-	    <strong class="text-info">Source code:</strong>
+	    <strong class="text-info">सोर्स कोड :</strong>
 	    <p align="justify"><a href={{project.src_url}}>{{project.src_url}}</a></p>
 
 	    {% if project.additional_url %}
-	    <strong class="text-info">Additional URL:</strong>
+	    <strong class="text-info">अतिरिक्‍त यू. आर. एल. :</strong>
 	    <p align="justify"><a href={{project.additional_url}}>{{project.additional_url}}</a></p>
 	    {% endif %}
 	  </div> <!-- col-md-9 -->
@@ -84,11 +84,11 @@
 	</div>
       </div> <!-- well -->
 
-      <p class="text-muted" align="center">Date uploaded : {{project.date_uploaded}}</p>      
+      <p class="text-muted" align="center">अपलोड करने का दिनांक : {{project.date_uploaded}}</p>      
     </div> <!-- well -->
   {% else %}
   <div class="well" align="center">
-  <p class="text-info">No project found.</p>
+  <p class="text-info">कोई भी परियोजना अप्राप्‍त है ।</p>
   </div>
   {% endif %}
   </div> <!-- container -->

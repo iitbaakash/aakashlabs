@@ -11,7 +11,7 @@
 
 <div class="container footer_padding" style="padding-top:2.5cm;">
   <div class="page-header" align="center">
-      <h1><i class="fa fa-plus-square"></i> Add project
+      <h1><i class="fa fa-plus-square"></i> परियोजनायें जमा करें
       </h1>
   </div>
   <div class="row">
@@ -32,14 +32,14 @@
 	
 	<!-- Success/Error messages ends here -->
 	<div class="col-lg-6">
-	  <h3>Project details.</h3>
+	  <h3>परियोजना का विवरण । </h3>
 	  {{projectform.as_p}}
 	</div> <!-- col-lg-6 -->
 
 	<div class="col-lg-6">
 	  
 	  <h3>Other details(Optional).</h3>
-	  <h4 class="text-muted">Member detail.</h4>
+	  <h4 class="text-muted"> सदस्‍यों की जानकारी .</h4>
 	  {{memberformset.management_form }}
 	  {% for member in memberformset.forms %}
 	  <div class="memberitem">
@@ -55,12 +55,12 @@
 	  <p>
 	    <a id="add"
 	       onClick="addForm(this,'member','memberitem');" >
-	      Add another member
+	      दूसरा सदस्‍य जोडें ।
 	  </a>
 	  </p>
 
 	  <hr>
-	  <h4 class="text-muted">Mentor detail.</h4>	  
+	  <h4 class="text-muted">गार्डड (विषय विशेषज्ञ) की जानकारी.</h4>	  
 	  {{mentorformset.management_form }}
 	  {% for mentor in mentorformset.forms %}
 	  <div class="mentoritem">
@@ -76,7 +76,7 @@
 	  <p>
 	    <a id="add"
 		onClick="addForm(this,'mentor','mentoritem');">
-	      Add another mentor
+	      दूसरा गार्डड (विषय विशेषज्ञ) जोडें।
 	    </a>
 	  </p>
 
