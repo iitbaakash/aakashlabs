@@ -48,6 +48,10 @@ class Project(models.Model):
     def __unicode__(self):
         return self.name        
 
+    def increment_download_count(self):
+        self.download_count += 1
+        self.save()
+
 
 class TeamMember(models.Model):
     member_name = models.CharField(max_length=200)
@@ -73,7 +77,7 @@ class Contact(models.Model):
     message = models.TextField(max_length=500)
 
     def __unicode__(self):
-        return self.email
+        return "%s, %s" % (self.name, self.email)
 
 
 class Faq(models.Model):

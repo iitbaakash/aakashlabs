@@ -369,44 +369,15 @@ def suggest_project_name(request):
                               context_dict, context)
 
 
-def download_apk(project_id):
-    """Download APK.
-    
-    Arguments:
-    - `project_id`:
-    """
-    project = get_object_or_404(Project, id=project_id)
-    file_path = project.apk
-    response = HttpResponse(
-        file_path,
-        mimetype="application/vnd.android.package-archive")
-    response['Content-Disposition'] = 'attachment; filename=%s' % project.apk
-
-    # increment download count
-    count = project.download_count + 1
-    project.download_count = count
-    project.save()
-    
-    
 def ac(request, id):
     context = RequestContext(request)
 
-    # download APK 
-    if request.POST and request.POST['download']:
-        project = get_object_or_404(Project, id=request.POST['download'])
-        file_path = project.apk
-        response = HttpResponse(
-            file_path,
-            mimetype="application/vnd.android.package-archive")
-        response['Content-Disposition'] = 'attachment; filename=%s' % project.apk
-
+    # Download APK
+    if request.GET:
+        project = get_object_or_404(Project, id=request.GET['id'])
         # increment download count
-        count = project.download_count + 1
-        project.download_count = count
-        project.save()
-
-        # Server apk for download
-        return response
+        project.increment_download_count()
+        return HttpResponseRedirect('/media/%s' % project.apk)
         
     aakashcentre = AakashCentre.objects.get(pk=id)
     # print id
@@ -430,22 +401,12 @@ def projects(request):
     """List all projects."""
     context = RequestContext(request)
 
-    # download APK 
-    if request.POST and request.POST['download']:
-        project = get_object_or_404(Project, id=request.POST['download'])
-        file_path = project.apk
-        response = HttpResponse(
-            file_path,
-            mimetype="application/vnd.android.package-archive")
-        response['Content-Disposition'] = 'attachment; filename=%s' % project.apk
-
+    # Download APK and increment the count
+    if request.GET:
+        project = get_object_or_404(Project, id=request.GET['id'])
         # increment download count
-        count = project.download_count + 1
-        project.download_count = count
-        project.save()
-
-        # Server apk for download
-        return response
+        project.increment_download_count()
+        return HttpResponseRedirect('/media/%s' % project.apk)
 
     projects = Project.objects.filter(approve=True).order_by('-download_count')
     context_dict = {'projects': projects}
@@ -456,22 +417,12 @@ def iitb(request):
     IITB has RC_ID=1000."""
     context = RequestContext(request)
 
-    # download APK 
-    if request.POST and request.POST['download']:
-        project = get_object_or_404(Project, id=request.POST['download'])
-        file_path = project.apk
-        response = HttpResponse(
-            file_path,
-            mimetype="application/vnd.android.package-archive")
-        response['Content-Disposition'] = 'attachment; filename=%s' % project.apk
-
+    # Download APK and increment the count
+    if request.GET:
+        project = get_object_or_404(Project, id=request.GET['id'])
         # increment download count
-        count = project.download_count + 1
-        project.download_count = count
-        project.save()
-
-        # server file for download.
-        return response
+        project.increment_download_count()
+        return HttpResponseRedirect('/media/%s' % project.apk)
         
     try:
         iitb = AakashCentre.objects.get(ac_id=1000)
@@ -489,25 +440,17 @@ def iitb(request):
     return render_to_response('ac/iitb.html', context_dict, context)
 
 def project(request, id):
+    """Individual project page.
+    No need to pass 'id' as second argument, see `def projects()`.
+    """
     context = RequestContext(request)
 
-    # download APK 
-    if request.POST and request.POST['download']:
-        project = get_object_or_404(Project, id=request.POST['download'])
-        file_path = project.apk
-        response = HttpResponse(
-            file_path,
-            mimetype="application/vnd.android.package-archive")
-        response['Content-Disposition'] = 'attachment; filename=%s' % project.apk
-
+    # Download APK and increment the count
+    if 'download' in request.GET:
+        project = get_object_or_404(Project, id=id)
         # increment download count
-        count = project.download_count + 1
-        project.download_count = count
-        project.save()
-
-        # server file for download.
-        return response
-
+        project.increment_download_count()
+        return HttpResponseRedirect('/media/%s' % project.apk)
         
     print id
     try:
@@ -662,7 +605,7 @@ Details:
 Name: """ + aakashcentre.name + """
 City: """ + aakashcentre.city + """
 State: """ + aakashcentre.state + """
-Coordinator's Name: """ + coordinator.name.first_name + coordinator.name.last_name + """
+Coordinator's Name: """ + coordinator.user.first_name + coordinator.user.last_name + """
 
 Waiting for you approval"""
             send_mail(email_subject, email_message,
