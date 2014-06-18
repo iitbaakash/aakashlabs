@@ -2,16 +2,16 @@
 <table class="table table-responsive table-bordered table-striped"
        border=0>
   <tr>
-    <td align="left"><strong>दुरस्‍थ केंद्र क्रमांक </strong></td>
+    <td align="center"><strong>दूरस्‍थ केंद्र क्रमांक </strong></td>
     <td align="left"><strong>केंद्र का नाम</strong></td>
     <td align="left"><strong>शहर का नाम</strong></td>
     <td align="left"><strong>राज्‍य का नाम</strong></td>
     <!-- <td>Coordinator</td> -->
   </tr>
-  <p class="text-info">Found {{aakashcentres|length}} centre{{aakashcentres|length|pluralize}}.</p>
+  <p class="text-info">कुल {{aakashcentres|length}} केंद्र प्राप्‍त हुये। <!--{{aakashcentres|length|pluralize}}.--></p>
   {% for ac in aakashcentres %}
   <tr>
-    <td align="left"><strong>{{ac.ac_id}}</strong></td>
+    <td align="center"><strong>{{ac.ac_id}}</strong></td>
     <td align="left"><a href="/ac/{{ac.id}}"><strong>{{ac.name}}</strong></a></td>
     <td align="left">{{ac.city}}</td>
     <td align="left">{{ac.state}}</td>

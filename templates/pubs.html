@@ -8,8 +8,8 @@
 {% block body_block %}
 <div class="container footer_padding" style="padding-top:2.5cm;">
   <div class="page-header">
-      <h1><i class="fa fa-archive"></i> Publications, Articles<small>
-	  and other media related to Aakash project.</small>
+      <h1><i class="fa fa-archive"></i> आकाश परियोजना सम्‍बंधी संचार माध्‍यम <small>
+	  लेख, प्रकाशन एवं अन्‍य । </small>
       </h1>
   </div>
 
@@ -19,10 +19,10 @@
       <strong>{{forloop.counter}}</strong>.&nbsp
       <strong>{{pub.title|capfirst}}</strong>
       {% if pub.attachment %}
-      | <a href="/media/{{pub.attachment}}"><i class="fa fa-file-text"> File</i></a>
+      | <a href="/media/{{pub.attachment}}"><i class="fa fa-file-text"> फाईल </i></a>
       {% endif %}
       {% if pub.url %}
-      | <a href="{{pub.url}}"><i class="fa fa-globe"> URL</i></a>
+      | <a href="{{pub.url}}"><i class="fa fa-globe"> यू.आर.एल.</i></a>
       {% endif %}
     </p>
   </h4>
@@ -32,7 +32,7 @@
   <hr>
   {% endfor %}
   {% else %}
-  <p class="text-muted">No Pubs.</p>
+  <p class="text-muted">लेख एवं प्रकाशन अप्राप्‍त है।</p>
   {% endif %}
 </div>
 {% endblock body_block %}
